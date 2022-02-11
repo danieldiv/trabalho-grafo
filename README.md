@@ -31,4 +31,6 @@
 
 - No diagrama abaixo é possivel observar o fluxo de excuções do programa, o simbolo de circulo fechado representa o loop.
 
-![Scrennshot](src/files/diagramaFluxo.png)
+<p align="center">
+	<img src="src/files/diagramaFluxo.png">
+</p>
