@@ -23,6 +23,6 @@
 	- 2 - Utiliza os dados [caminho2](src/files/labirinto2.png) para teste
 	- 3 - Cria um grafo denso com a quantidade de vertices desejada
 	- 4 - Cria um grafo esparso com a quantidade de vertices desejada
-	- 5 - Cria um grafo com o [exemplo](src/files/graphExample.png.png) utilizado em sala
+	- 5 - Cria um grafo com o [exemplo](src/files/graphExample.png) utilizado em sala
 
 ![Scrennshot](src/files/menuGrafo.png)
