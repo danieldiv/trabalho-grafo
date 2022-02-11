@@ -29,13 +29,19 @@
 
 ![Scrennshot](src/files/menuGrafo.png)
 
+### Mapeamento
+
+- Para representar o caminho em formato de grafo utilizando como base o `labirinto1`, cada quadrado é um vertice, sendo um total de `182` vertices.
+
+- Os quadraos pretos são as paredes, logo eles não sao conectados a nenhum outro vertice, os quadrados brancos são os caminho, e todas as suas adjacencias são conectadas, sendo no maixmo `4` adjacencias em um vertice.
+
 ### Resultado
 
 - Ao selecionar a opcao `1` definindo o fim do labirinto como `181` e executar a `DFS`, sera gerado o [caminho1](src/files/caminho1.png)
 
 - Ao selecionar a opcao `2` definindo o fim do labirinto como `181` e executar a `DFS`, sera gerado o [caminho2](src/files/caminho2.png)
 
-- Como o [labirinto2](src/files/labirinto2.png) possui um caminho fechado, a busca na `DFS` não ira encontrar o vertice `181` partindo do inicio, apenas quando finalizar o caminhamento em todos os vertices que estao conectados, que em seguida, ira caminhar no vertice `181`, porem para este problema sera considerado como caminho nao encontrado.
+- Como o `labirinto2` possui um caminho fechado, a busca na `DFS` não ira encontrar o vertice `181` partindo do inicio, apenas quando finalizar o caminhamento em todos os vertices que estao conectados, que em seguida, ira caminhar no vertice `181`, porem para este problema sera considerado como caminho nao encontrado.
 
 ## Diagrama de Fluxo
 
