@@ -29,6 +29,12 @@
 
 ![Scrennshot](src/files/menuGrafo.png)
 
+### Resultado
+
+- Ao selecionar a opcao `1` definindo o fim do labirinto como `181` e executar a `DFS`, sera gerado o [caminho1](src/files/caminho1.png)
+
+- Ao selecionar a opcao `2` definindo o fim do labirinto como `114` e executar a `DFS`, sera gerado o [caminho2](src/files/caminho2.png)
+
 ## Diagrama de Fluxo
 
 - No diagrama abaixo é possivel observar o fluxo de execuções do programa, o simbolo de circulo fechado sem informação dentro representa o loop.

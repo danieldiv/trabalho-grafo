@@ -42,6 +42,7 @@ void DFS(Graph G, int fimLabirinto){
         DFS_VISIT(G, G->adj[v], cor, d, f, &tempo, &found, fimLabirinto);
 
       controle = (!controle && found == 0) ? true : controle;
+      if(found == 1) break;
 
       if(enter) {
         enter = false;
