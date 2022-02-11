@@ -15,10 +15,12 @@
 
 ## Menu
 
-![Scrennshot](src/files/menu_principal.png)
+![Scrennshot](src/files/menuPrincipal.png)
 
 - Ao iniciar o programa tera 7 opções:
-	- 0 -> Finaliza o programa
-	- 0 -> [bfs](src/bfs.c)
+	- 0 - Finaliza o programa
+	- 1 - Utiliza os dados [inputA](src/files/labirinto1.png) para teste
+	- 1 - Utiliza os dados [inputB](src/files/labirinto2.png) para teste
+	<!-- - 0 -> [bfs](src/bfs.c) -->
 
-![Scrennshot](src/files/menu_grafo.png)
+![Scrennshot](src/files/menuGrafo.png)
