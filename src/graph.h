@@ -1,8 +1,9 @@
 #ifndef GRAPH_H
 #define GRAPH_H
 
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
 
 typedef struct graph *Graph;
 typedef struct TipoVertex *Vertex;
@@ -45,7 +46,7 @@ Item* Dequeue(Fila *f);
 
 void BFS(Graph G, Vertex s, int *cont);
 
-void DFS(Graph G);
-void DFS_VISIT(Graph G, Vertex v, int *cor, int *d, int *f, int *tempo);
+void DFS(Graph G, int fimLabirinto);
+void DFS_VISIT(Graph G, Vertex v, int *cor, int *d, int *f, int *tempo, int *found, int fimLabirinto);
 
 #endif

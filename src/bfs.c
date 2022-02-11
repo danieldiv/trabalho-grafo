@@ -31,7 +31,7 @@ void BFS(Graph G, Vertex s, int *cont){
     }
 
     cor[u->data] = 2;
-    printf("Vertex:%d\n", u->data);
+    printf("Vertex:%d -> %d\n", u->data, pi[u->data]);
     (*cont)++;
   }
 }
