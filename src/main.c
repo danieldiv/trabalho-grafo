@@ -19,13 +19,16 @@ int labirintoImpossivel[2][TAMLAB - 4] = {
 
 void printLabirinto();
 int menu();
+int menuGrafo(int tam);
 
 void labirinto(int file);
 void gerarGrafo(bool type);
 void exemploAula();
+void criarGrafo(int tam);
+void conectarVertice(Graph G);
 
 int main(){
-    int op;
+    int op, tam;
 
     do {
         system("clear");
@@ -46,6 +49,15 @@ int main(){
             break;
             case 5:
                 exemploAula();
+            break;
+            case 6:
+                printf("Informe o tamanho do grafo: ");
+                scanf("%d", &tam);
+
+                if(tam > 0)
+                    criarGrafo(tam);
+                else
+                    printf("O numero de vertices do grafo nao pode ser negativo ou zero!\n");
             break;
             case 0:
                 printf("O programa sera finalizado!\n");
@@ -72,18 +84,128 @@ int menu() {
 	printf("3 - Rota de aviao em grafo denso\n");
 	printf("4 - Rota de aviao em grafo esparso\n");
 	printf("5 - Grafo do exemplo da aula\n");
+	printf("6 - Criar grafo\n");
 	printf("0 - Sair\n\n");
 
-	printf("Escolha uma opção: ");
+	printf("Escolha uma opcao: ");
 	scanf("%d", &op);
 
 	return op;
 }
 
+/**
+ * @brief menu de opcoes do grafo
+ *
+ * utilizado pelo metodo criarGrafo
+*/
+int menuGrafo(int tam) {
+	int op;
+
+	system("clear");
+    printf("====================\n");
+	printf(" GRAFO: %d VERTICES\n", tam);
+	printf("====================\n\n");
+
+	printf("1 - Conectar vertice\n");
+	printf("2 - Imprimir grafo\n");
+	printf("3 - Executar BFS\n");
+	printf("4 - Executar DFS\n");
+	printf("0 - Voltar\n\n");
+
+	printf("Escolha uma opcao: ");
+	scanf("%d", &op);
+
+	return op;
+}
+
+/**
+ * @brief cria um grafo com o tamanho desejado e relaciona os vertices
+ * @param tam tamanho de vertices do grafo
+*/
+void criarGrafo(int tam) {
+    Graph G = GraphInitialize(tam);
+    int op, cont = 0, fimLabirinto = -1;
+
+    do {
+        op = menuGrafo(tam);
+
+        switch(op) {
+            case 1:
+                conectarVertice(G);
+            break;
+            case 2:
+                ImprimeGraph(G);
+            break;
+            case 3:
+                printf("\nBusca em largura\n\n");
+                BFS(G, G->adj[0], &cont);
+            break;
+            case 4:
+                printf("\nBusca em profundidade\n\n");
+                DFS(G, fimLabirinto);
+            break;
+            case 0:
+                return;
+            default:
+                printf("Opcao invalida!\n");
+        }
+        system("read -p \"\nPressione enter para continuar...\" continue");
+	} while (op != 0);
+
+    ImprimeGraph(G);
+}
+
+/**
+ * @brief conecta um vertice a seu adjacente
+ * @param G grafo utilizado para as conexoes dos vertices
+ *
+ * utilizado pelo metodo criarGrafo
+ * a conexao de um vertice com ele mesmo nao funciona corretamente, logo nao sera permitido
+*/
+void conectarVertice(Graph G) {
+    int x, y;
+
+    system("clear");
+    printf("====================\n");
+	printf("    (V) -> adj\n");
+	printf("====================\n\n");
+
+    printf("Informe o vertice inicial: ");
+    scanf("%d", &x);
+
+    if(x >= 0 && x < G->V) {
+        printf("Informe o vertice adjacente: ");
+        scanf("%d", &y);
+
+        if(x == y) {
+            printf("\nO vertice de origem e igual ao vertice de destino!\n");
+            return;
+        }
+
+        if(y >= 0 && y < G->V) {
+            Vertex u = G->adj[x];
+            Vertex aux = u->prox;
+
+            while(aux != NULL) {
+                if(aux->value == y) {
+                    printf("\nO vertice (%d) ja possui o vertice adjacente (%d)\n", x, y);
+                    return;
+                }
+                aux=aux->prox;
+            }
+            GraphInsertEdge(G, G->adj[x], G->adj[y]);
+        }
+
+        else
+            printf("Vertice adjancente inacessivel ou inexistente\n");
+    } else
+        printf("Vertice inacessivel ou inexistente\n");
+}
+
 // cria um grafo com o exemplo utilizado em aula
 void exemploAula() {
     Graph G = GraphInitialize(10);
-    int cont = 0;
+    int cont = 0, fimLabirinto = -1;
 
     grafoExemplo(G);
 
@@ -94,7 +216,7 @@ void exemploAula() {
     BFS(G, G->adj[0], &cont);
 
     printf("\nBusca em profundidade\n\n");
-    BFS(G, G->adj[0], &cont);
+    DFS(G, fimLabirinto);
 }
 
 /**
