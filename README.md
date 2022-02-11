@@ -25,4 +25,10 @@
 	- 4 - Cria um grafo esparso com a quantidade de vertices desejada
 	- 5 - Cria um grafo com o [exemplo](src/files/graphExample.png) utilizado em sala
 
-![Scrennshot](src/files/menuGrafo.png)
+<!-- ![Scrennshot](src/files/menuGrafo.png) -->
+
+## Diagrama de Fluxo
+
+- No diagrama abaixo é possivel observar o fluxo de excuções do programa, o simbolo de circulo fechado representa o loop.
+
+![Scrennshot](src/files/diagramaFluxo.png)
