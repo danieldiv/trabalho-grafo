@@ -1,6 +1,13 @@
 #include "file.h"
 
-void readFile(Lista *l,  int valor, int *quant) {
+/**
+ * @brief realiza a leitura de um arquivo e tokeniza os valores
+ * @param l lista para salvar os valores do arquivo
+ * @param valor parametro utilizado para definir qual arquivo ira abrir
+ *
+ * utilizada pelo metodo labirinto
+*/
+void readFile(Lista *l,  int valor) {
 	FILE *file;
 	char *path = (char*)malloc(50 * sizeof(char));
 
@@ -18,7 +25,6 @@ void readFile(Lista *l,  int valor, int *quant) {
 	} else {
 		while(!feof(file)) {
 			result = fgets(linha, sizeof(linha), file);
-			(*quant)++;
 
 			if(result) {
 				tokenizar(linha, &item);
@@ -31,6 +37,13 @@ void readFile(Lista *l,  int valor, int *quant) {
 	free(path);
 }
 
+/**
+ * @brief tokeniza o valor utilizando o parametro ","
+ * @param linha string que sera tokenizada
+ * @param item lista que ira armazenar os valores tokenizados
+ *
+ * utilizado pelo metodo readFile
+*/
 void tokenizar(char *linha, ItemLista *item) {
 	const char sep[] = ",";
 	bool aux = true;

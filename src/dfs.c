@@ -15,7 +15,7 @@ void DFS_VISIT(Graph G, Vertex v, int *cor, int *d, int *f, int *tempo, int *fou
   f[v->value] = *tempo;
 
   if(*found != -1) {
-    if(v->value == fimLabirinto) // o valor
+    if(v->value == fimLabirinto) // verifica se chegou no fim do labirinto
       *found = 1;
   }
 
@@ -38,8 +38,8 @@ void DFS(Graph G, int fimLabirinto){
     cor[v] = 0;
 
   for(int v=0; v<G->V; v++) {
-    if(cor[v] == 0)
-      DFS_VISIT(G, G->adj[v], cor, d, f, &tempo, &found, fimLabirinto);
+      if(cor[v] == 0)
+        DFS_VISIT(G, G->adj[v], cor, d, f, &tempo, &found, fimLabirinto);
 
       controle = (!controle && found == 0) ? true : controle;
 
@@ -56,5 +56,4 @@ void DFS(Graph G, int fimLabirinto){
     else
       printf("Nao e possivel chegar ao final do labirinto (%d), caminho inacessivel ou inexistente!\n", fimLabirinto);
   }
-
 }

@@ -1,7 +1,7 @@
 #include "graph.h"
 
 void BFS(Graph G, Vertex s, int *cont){
-  int cor[G->V]; //0 Branco, 1 Cinza, 2 Preto
+  int cor[G->V]; // 0 Branco, 1 Cinza, 2 Preto
   int d[G->V];
   int pi[G->V]; // -1 == NULL
   Fila *f = FFVazia();
@@ -9,7 +9,7 @@ void BFS(Graph G, Vertex s, int *cont){
   for(int i=0; i<G->V; i++)
     if(i != s->value){
       cor[i] = 0;
-      d[i]   = -1; //infinito
+      d[i]   = -1; // infinito
       pi[i]  = -1; // ? não tem pai ainda
     }
 

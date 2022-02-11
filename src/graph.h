@@ -5,6 +5,15 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+#define R 2
+#define S 0
+#define T 4
+#define U 6
+#define V_ 3
+#define W 1
+#define X 5
+#define Y 7
+
 typedef struct graph *Graph;
 typedef struct TipoVertex *Vertex;
 
@@ -48,5 +57,10 @@ void BFS(Graph G, Vertex s, int *cont);
 
 void DFS(Graph G, int fimLabirinto);
 void DFS_VISIT(Graph G, Vertex v, int *cor, int *d, int *f, int *tempo, int *found, int fimLabirinto);
+
+void grafoDenso(Graph G, int tam);
+void grafoEsparso(Graph G, int tam);
+void grafoExemplo();
+bool checkPrimo(int p);
 
 #endif
