@@ -35,6 +35,8 @@
 
 - Os quadraos pretos são as paredes, logo eles não sao conectados a nenhum outro vertice, os quadrados brancos são os caminhos, e todas as suas adjacencias são conectadas, sendo no maixmo `4` adjacencias em um vertice, tendo como resultado o seguinte [grafo](src/files/grafo.png).
 
+- O grafo gerado para o [labirinto2](src/files/labirinto2.png) é semelhante ao grafo acima, com a diferença de que um de seus caminhos é modificada de branco para preto.
+
 ### Resultado
 
 - Ao selecionar a opcao `1` definindo o fim do labirinto como `181` e executar a `DFS`, sera gerado o [caminho1](src/files/caminho1.png)
