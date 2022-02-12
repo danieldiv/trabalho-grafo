@@ -33,7 +33,7 @@
 
 - Para representar o caminho em formato de grafo utilizando como base o [labirinto1](src/files/labirinto1.png), cada quadrado é um vertice, sendo um total de `182` vertices.
 
-- Os quadraos pretos são as paredes, logo eles não sao conectados a nenhum outro vertice, os quadrados brancos são os caminhos, e todas as suas adjacencias são conectadas, sendo no maixmo `4` adjacencias em um vertice, tendo como resultado o seguinte [grafo](src/files/grafo.png).
+- Os quadraos `pretos` são as paredes, logo eles não sao conectados a nenhum outro vertice, os quadrados `brancos` são os caminhos, e todas as suas adjacencias são conectadas, sendo no maixmo `4` adjacencias em um vertice, tendo como resultado o seguinte [grafo](src/files/grafo.png).
 
 - O grafo gerado para o [labirinto2](src/files/labirinto2.png) é semelhante ao grafo acima, com a diferença de que um de seus caminhos é modificada de branco para preto.
 
