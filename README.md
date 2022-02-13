@@ -24,8 +24,8 @@
 	- `3` - Cria um grafo denso com a quantidade de vertices desejada
 	- `4` - Cria um grafo esparso com a quantidade de vertices desejada
 	- `5` - Cria um grafo com o [exemplo](src/files/imgs/graphExample.png) utilizado em sala
-	- `7` - Importar uma matriz de adjacencia com `10` linhas e insere no grafo
-	- `8` - Importar uma matriz de adjacencia com `182` linhas e insere no grafo
+	- `7` - Importar uma matriz de adjacencia com `10` vertices e insere no grafo
+	- `8` - Importar uma matriz de adjacencia com `182` vertices e insere no grafo
 
 - A opção `6` ira mostra um novo menu:
 
