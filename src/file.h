@@ -8,6 +8,7 @@
 
 #include <string.h>
 #include <stdbool.h>
+#include <time.h>
 
 void readFile(Lista *l, char *path, int *cont, int valor);
 void tokenizar(char *str, bool controle, ItemLista *item);

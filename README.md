@@ -11,7 +11,7 @@
 
 > make run
 
-- O codigo foi desenvolvido em ambiente linux ubunto
+- O codigo foi desenvolvido em ambiente linux ubuntu
 
 ## Menu
 
