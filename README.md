@@ -17,13 +17,15 @@
 
 ![Scrennshot](src/files/imgs/menuPrincipal.png)
 
-- Ao iniciar o programa tera `7` opções:
+- Ao iniciar o programa tera `9` opções:
 	- `0` - Finaliza o programa
 	- `1` - Utiliza os dados do [labirinto1](src/files/imgs/labirinto1.png) para teste
 	- `2` - Utiliza os dados do [labirinto2](src/files/imgs/labirinto2.png) para teste
 	- `3` - Cria um grafo denso com a quantidade de vertices desejada
 	- `4` - Cria um grafo esparso com a quantidade de vertices desejada
 	- `5` - Cria um grafo com o [exemplo](src/files/imgs/graphExample.png) utilizado em sala
+	- `7` - Importar uma matriz de adjacencia com `10` linhas e insere no grafo
+	- `8` - Importar uma matriz de adjacencia com `182` linhas e insere no grafo
 
 - A opção `6` ira mostra um novo menu:
 
