@@ -80,7 +80,7 @@ int main(){
         }
         system("read -p \"\nPressione enter para continuar...\" continue");
 	} while (op != 0);
-    // time = clock() - time;
+    time = clock() - time;
     // printf("Tempo de execucao: %lf\n", ((double)time)/((CLOCKS_PER_SEC)));
 
 	return EXIT_SUCCESS;
@@ -285,6 +285,7 @@ void exemploAula() {
 */
 void gerarGrafo(bool type) {
 	int V, cont = 0;
+    int fimLabirinto = -1;
 
 	printf("Quantidade de vertices do grafo: ");
 	scanf("%d", &V);
@@ -303,6 +304,10 @@ void gerarGrafo(bool type) {
 
         printf("\nBusca em largura\n\n");
         BFS(G, G->adj[0], &cont);
+
+        printf("\nBuscando pela DFS:\n\n");
+        DFS(G, fimLabirinto);
+
         printf("\ncont: %d\n", cont);
 
         // caso o grafo possua um vertice isolado, o BFS nao conseguira visitar, fazendo o contador ser menor do que V
