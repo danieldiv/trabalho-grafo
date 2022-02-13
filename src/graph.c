@@ -90,3 +90,50 @@ void ImprimeGraph(Graph G){
 }
 
 // fim procs para tratar com grafos
+
+/**
+ * @brief transforma uma lista de adjacencia em uma matriz de adjacencia
+ * @param G grafo com a lista de ajacencia
+ * @param matriz utilizada para armazenar os valores da matriz de adjacencia
+ *
+ * a funcao deve ser chamada apoz criar um grafo que deseja converter em uma matriz de adjacencia
+ * a alocacao de uma matriz dinamica pode ser conferida ao final do arquivo
+*/
+void listToMatriz(Graph G, int **matriz) {
+  Vertex aux;
+  int v = 0;
+  int controle;
+
+  for(int v=0; v<G->V; v++){
+    aux = G->adj[v];
+    controle = true;
+
+    while(aux != NULL){
+      if(controle) {
+        v = aux->value;
+        controle = false;
+      } else
+        matriz[v][aux->value] = 1;
+      aux = aux->prox;
+    }
+  }
+  v++;
+
+  for(int i=0; i < G->V; i++) {
+      for(int j=0; j < G->V; j++)
+          printf("%d ", matriz[i][j]);
+      printf("[fim]\n");
+  }
+}
+
+// inicializar matriz com malloc
+
+// int **matriz = (int**)malloc(tam * sizeof(int*));
+
+// 	for(int i=0; i < tam; i++) {
+// 		matriz[i] = (int*)malloc(tam * sizeof(int));
+
+// 		for(int j=0; j < tam; j++)
+// 			matriz[i][j] = 0;
+// 	}
+// listToMatriz(G, matriz);

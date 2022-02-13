@@ -24,6 +24,8 @@ int menuGrafo(int tam);
 void labirinto(int file);
 void gerarGrafo(bool type);
 void exemploAula();
+void importarMatriz(int vertices);
+
 void criarGrafo(int tam);
 void conectarVertice(Graph G);
 
@@ -59,6 +61,12 @@ int main(){
                 else
                     printf("O numero de vertices do grafo nao pode ser negativo ou zero!\n");
             break;
+            case 7:
+                importarMatriz(1);
+            break;
+            case 8:
+                importarMatriz(2);
+            break;
             case 0:
                 printf("O programa sera finalizado!\n");
                 return EXIT_SUCCESS;
@@ -85,6 +93,8 @@ int menu() {
 	printf("4 - Rota de aviao em grafo esparso\n");
 	printf("5 - Grafo do exemplo da aula\n");
 	printf("6 - Criar grafo\n");
+	printf("7 - Importar matriz de adjacencia 10 vertices\n");
+	printf("8 - Importar matriz de adjacencia 180 vertices\n");
 	printf("0 - Sair\n\n");
 
 	printf("Escolha uma opcao: ");
@@ -116,6 +126,51 @@ int menuGrafo(int tam) {
 	scanf("%d", &op);
 
 	return op;
+}
+
+/**
+ * @brief realiza a leitura de uma matriz de adjacencia e transforma em uma lista de adjacencia
+*/
+void importarMatriz(int vertices) {
+    Lista l;
+    int i=0, j, cont = 0, quant = 0;
+    int tam = 0, fimLabirinto;
+
+    FLVazia(&l);
+    readFile(&l, PATH_MATRIZ, &cont, vertices);
+
+    if(cont > 0) {
+        Block *aux;
+
+        aux = l.first->prox;
+        quant = (aux == NULL) ? 0 : aux->dado.contVetor;
+        tam = (quant > cont) ? quant : cont;
+        fimLabirinto = (vertices == 2) ? 181 : -1;
+
+        Graph G = GraphInitialize(tam);
+
+        while(aux != NULL) {
+            j = 0;
+            while(j < aux->dado.contVetor) {
+                printf("%d ", aux->dado.vetor[j]);
+                if(aux->dado.vetor[j] == 1)
+                    GraphInsertEdge(G, G->adj[i], G->adj[j]);
+                j++;
+            }
+            printf("\n");
+            aux = aux->prox;
+            i++;
+        }
+        printf("\nImpressao do grafo\n\n");
+        ImprimeGraph(G);
+
+        printf("\nBusca em largura\n\n");
+        BFS(G, G->adj[0], &cont);
+
+        printf("\nBusca em profundidade\n\n");
+        DFS(G, fimLabirinto);
+    } else
+        printf("Arquivo nao possui valores\n");
 }
 
 /**
@@ -209,6 +264,16 @@ void exemploAula() {
 
     grafoExemplo(G);
 
+    // int **matriz = (int**)malloc(G->V * sizeof(int*));
+
+	// for(int i=0; i < G->V; i++) {
+	// 	matriz[i] = (int*)malloc(G->V * sizeof(int));
+
+	// 	for(int j=0; j < G->V; j++)
+	// 		matriz[i][j] = 0;
+	// }
+    // listToMatriz(G, matriz);
+
     printf("\nImpressao do grafo\n\n");
     ImprimeGraph(G);
 
@@ -269,13 +334,13 @@ void gerarGrafo(bool type) {
 */
 void labirinto(int file) {
     Lista l;
+    int i, cont = 0;
 
     FLVazia(&l);
-    readFile(&l, file);
+    readFile(&l, PATH_LABIRINTO, &cont, file);
 	Graph G = GraphInitialize(182);
 
     Block *aux;
-    int i, cont = 0;
 
 	aux = l.first->prox;
 	while(aux != NULL) {
@@ -285,6 +350,16 @@ void labirinto(int file) {
 		aux = aux->prox;
 	}
 
+    // int **matriz = (int**)malloc(G->V * sizeof(int*));
+
+	// for(i=0; i < G->V; i++) {
+	// 	matriz[i] = (int*)malloc(G->V * sizeof(int));
+
+	// 	for(int j=0; j < G->V; j++)
+	// 		matriz[i][j] = 0;
+	// }
+    // listToMatriz(G, matriz);
+
     int fimLabirinto; // < 0 -> nao ira buscar o fim do labirinto, >= 0 -> ira buscar o fim do labirinto
 
     printf("Informe o vertice final para o fim do labirinto (0 to 181): ");
@@ -293,6 +368,7 @@ void labirinto(int file) {
     ImprimeGraph(G);
 
     printf("\nBuscando pela BFS:\n\n");
+    cont = 0;
     BFS(G, G->adj[0], &cont);
 
     printf("\nBuscando pela DFS:\n\n");

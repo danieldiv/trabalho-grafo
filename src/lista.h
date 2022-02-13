@@ -13,6 +13,9 @@ struct ItemLista {
 	int vertice;
 	int adj[4];
 	int cont;
+
+	int *vetor;
+	int contVetor;
 };
 
 struct Block {

@@ -53,6 +53,8 @@ Fila* FFVazia();
 void Queue(Fila *f, int vertex);
 Item* Dequeue(Fila *f);
 
+void listToMatriz(Graph G, int **matriz);
+
 void BFS(Graph G, Vertex s, int *cont);
 
 void DFS(Graph G, int fimLabirinto);
